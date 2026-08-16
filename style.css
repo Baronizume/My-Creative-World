@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    text-align: center;
+    transition: 0.4s;
+}
+
+/* Header */
+
+header {
+    background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+    color: white;
+    padding: 40px 20px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 42px;
+    animation: titleAnimation 2s infinite alternate;
+}
+
+header p {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* Animation */
+
+@keyframes titleAnimation {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+/* Navigation */
+
+nav {
+    background: #222;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ce93d8;
+}
+
+/* Sections */
+
+section {
+    padding: 60px 20px;
+}
+
+.hero {
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    line-height: 1.7;
+}
+
+/* Buttons */
+
+button {
+    background: #8e24aa;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #6a1b9a;
+    transform: scale(1.05);
+}
+
+/* Theme Button */
+
+#themeBtn {
+    background: white;
+    color: #6a1b9a;
+}
+
+/* Gallery */
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.card {
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: 0.4s;
+    padding-bottom: 15px;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 15px;
+}
+
+.card p {
+    padding: 0 15px;
+    line-height: 1.5;
+}
+
+.like-btn {
+    background: #e91e63;
+}
+
+.like-btn:hover {
+    background: #c2185b;
+}
+
+/* Music */
+
+.media-section {
+    background: #eeeeee;
+}
+
+audio {
+    margin-top: 20px;
+}
+
+/* Video */
+
+video {
+    max-width: 90%;
+    margin-top: 20px;
+    border-radius: 12px;
+}
+
+/* Canvas */
+
+.interactive-section {
+    background: white;
+}
+
+canvas {
+    margin-top: 25px;
+    border: 3px solid #8e24aa;
+    border-radius: 10px;
+    background: #fafafa;
+    max-width: 100%;
+    cursor: crosshair;
+}
+
+.canvas-controls {
+    margin-top: 10px;
+}
+
+/* About */
+
+.about {
+    background: #eeeeee;
+}
+
+.about p {
+    max-width: 700px;
+    margin: 20px auto;
+    line-height: 1.7;
+}
+
+/* Footer */
+
+footer {
+    background: #222;
+    color: white;
+    padding: 25px;
+}
+
+/* Back to top */
+
+#topBtn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: none;
+    font-size: 20px;
+}
+
+/* Dark Mode */
+
+body.dark {
+    background: #181818;
+    color: #eee;
+}
+
+body.dark .hero,
+body.dark .interactive-section,
+body.dark .card {
+    background: #252525;
+    color: white;
+}
+
+body.dark .media-section,
+body.dark .about {
+    background: #202020;
+}
+
+body.dark canvas {
+    background: #333;
+}

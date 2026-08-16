@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Creative World</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="header-top">
+
+            <h1>✨ My Creative World ✨</h1>
+
+            <button id="themeBtn" onclick="toggleTheme()">
+                🌙 Dark Mode
+            </button>
+
+        </div>
+
+        <p>
+            Explore my world of creativity, music, art and imagination.
+        </p>
+
+    </header>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#music">Music</a>
+
+        <a href="#video">Video</a>
+
+        <a href="#interactive">Interactive</a>
+
+    </nav>
+
+
+    <!-- ================= HOME ================= -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <h2>
+                Welcome to My Creative World
+            </h2>
+
+            <p>
+                Creativity is a way of expressing ideas, emotions and imagination.
+                This website represents some of the things I enjoy.
+            </p>
+
+            <button onclick="welcomeMessage()">
+                ✨ Explore My World
+            </button>
+
+            <p id="message"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= GALLERY ================= -->
+
+    <section id="gallery">
+
+        <h2>🎨 My Gallery</h2>
+
+        <p>
+            Click on a card to explore it.
+        </p>
+
+
+        <div class="gallery">
+
+
+            <!-- ART -->
+
+            <div class="card" onclick="showArt('Art')">
+
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
+                    alt="Art">
+
+                <h3>Art</h3>
+
+                <p>
+                    Art gives life to imagination.
+                </p>
+
+                <button class="like-btn" onclick="likeCard(event, this)">
+                    ♡ Like
+                </button>
+
+            </div>
+
+
+            <!-- CREATIVITY -->
+
+            <div class="card" onclick="showArt('Creativity')">
+
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80"
+                    alt="Creativity">
+
+                <h3>Creativity</h3>
+
+                <p>
+                    Creativity helps us see things differently.
+                </p>
+
+                <button class="like-btn" onclick="likeCard(event, this)">
+                    ♡ Like
+                </button>
+
+            </div>
+
+
+            <!-- DESIGN -->
+
+            <div class="card" onclick="showArt('Design')">
+
+                <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&q=80"
+                    alt="Design">
+
+                <h3>Design</h3>
+
+                <p>
+                    Good design combines ideas and beauty.
+                </p>
+
+                <button class="like-btn" onclick="likeCard(event, this)">
+                    ♡ Like
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MUSIC ================= -->
+
+    <section id="music" class="media-section">
+
+        <h2>🎵 My Music</h2>
+
+        <p>Music makes every creative moment more enjoyable.</p>
+
+        <audio id="musicPlayer" controls preload="metadata">
+            <source src="./music.mpeg" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <br>
+
+        <button onclick="toggleMusic()">
+            ▶ Play / ⏸ Pause
+        </button>
+
+    </section>
+    <!-- ================= VIDEO ================= -->
+
+    <section id="video">
+
+        <h2>🎬 Creative Video</h2>
+
+        <p>
+            Watch a short video related to creativity.
+        </p>
+
+
+        <video controls width="600">
+
+            <source src="video.mp4" type="video/mp4">
+
+            Your browser does not support video.
+
+        </video>
+
+
+        <p class="video-note">
+            Add your video file as <strong>video.mp4</strong>
+            in the same folder as this HTML file.
+        </p>
+
+    </section>
+
+
+    <!-- ================= INTERACTIVE CANVAS ================= -->
+
+    <section id="interactive" class="interactive-section">
+
+        <h2>
+            🟣 Interactive Creative Canvas
+        </h2>
+
+        <p>
+            Click anywhere inside the box to create a colourful circle.
+        </p>
+
+
+        <canvas id="creativeCanvas" width="700" height="350">
+        </canvas>
+
+
+        <div class="canvas-controls">
+
+            <button onclick="clearCanvas()">
+                🗑 Clear
+            </button>
+
+
+            <button onclick="randomCircle()">
+                🎲 Random Circle
+            </button>
+
+        </div>
+
+
+        <p>
+            Circles Created:
+            <strong id="circleCount">0</strong>
+        </p>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about">
+
+        <h2>
+            💡 About Creativity
+        </h2>
+
+        <p>
+            Creativity allows us to express ourselves through art,
+            music, design and technology. This website is a small
+            example of how different multimedia elements can be
+            combined to create an interactive experience.
+        </p>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 My Creative World
+        </p>
+
+    </footer>
+
+
+    <!-- ================= BACK TO TOP ================= -->
+
+    <button id="topBtn" onclick="goTop()">
+
+        ↑
+
+    </button>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
