@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Creative World</title>
+    <title>Marvel My Creative World</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -15,38 +15,28 @@
     <!-- ================= HEADER ================= -->
 
     <header>
-
         <div class="header-top">
+            <h1>🦸 My Favourite Marvel Heroes</h1>
 
-            <h1>✨ My Creative World ✨</h1>
-
-            <button id="themeBtn" onclick="toggleTheme()">
+            <button id="themeBtn" type="button">
                 🌙 Dark Mode
             </button>
-
         </div>
 
         <p>
-            Explore my world of creativity, music, art and imagination.
+            Explore some of my favourite superheroes from the Marvel Universe.
         </p>
-
     </header>
 
 
     <!-- ================= NAVIGATION ================= -->
 
     <nav>
-
         <a href="#home">Home</a>
-
-        <a href="#gallery">Gallery</a>
-
+        <a href="#gallery">Heroes</a>
         <a href="#music">Music</a>
-
         <a href="#video">Video</a>
-
         <a href="#interactive">Interactive</a>
-
     </nav>
 
 
@@ -56,17 +46,27 @@
 
         <div class="hero-content">
 
-            <h2>
-                Welcome to My Creative World
-            </h2>
+            <div class="home-image">
+                <video autoplay muted loop playsinline>
+                    <source src="./marvel-home.mp4" type="video/mp4">
+                    Your browser does not support video.
+                </video>
+            </div>
+
+            <div class="hero-symbol">
+                MARVEL
+            </div>
+
+            <h2>Welcome to the Marvel Universe</h2>
 
             <p>
-                Creativity is a way of expressing ideas, emotions and imagination.
-                This website represents some of the things I enjoy.
+                Explore my favourite Marvel superheroes,
+                listen to music, watch videos and discover
+                interactive powers.
             </p>
 
-            <button onclick="welcomeMessage()">
-                ✨ Explore My World
+            <button class="main-btn" id="welcomeBtn" type="button">
+                ⚡ Enter the Marvel World
             </button>
 
             <p id="message"></p>
@@ -76,79 +76,195 @@
     </section>
 
 
-    <!-- ================= GALLERY ================= -->
+    <!-- ================= HEROES ================= -->
 
-    <section id="gallery">
+    <section id="gallery" class="gallery-section">
 
-        <h2>🎨 My Gallery</h2>
+        <h2>🦸 My Favourite Marvel Heroes</h2>
 
-        <p>
-            Click on a card to explore it.
+        <p class="section-description">
+            Explore some of my favourite superheroes from the Marvel Universe.
         </p>
-
 
         <div class="gallery">
 
+            <!-- SPIDER-MAN -->
 
-            <!-- ART -->
+            <article class="card" data-hero="Spider-Man">
 
-            <div class="card" onclick="showArt('Art')">
+                <div class="image-container">
 
-                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=600&q=80"
-                    alt="Art">
+                    <img src="./image1.jpg" alt="Spider-Man" loading="lazy">
 
-                <h3>Art</h3>
+                    <span class="hero-number">01</span>
 
-                <p>
-                    Art gives life to imagination.
-                </p>
+                </div>
 
-                <button class="like-btn" onclick="likeCard(event, this)">
-                    ♡ Like
-                </button>
+                <div class="card-content">
 
-            </div>
+                    <h3>🕷️ Spider-Man</h3>
 
+                    <p>
+                        A friendly neighbourhood superhero with
+                        incredible powers and responsibility.
+                    </p>
 
-            <!-- CREATIVITY -->
+                    <button class="like-btn" type="button">
+                        ♡ Like
+                    </button>
 
-            <div class="card" onclick="showArt('Creativity')">
+                </div>
 
-                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80"
-                    alt="Creativity">
-
-                <h3>Creativity</h3>
-
-                <p>
-                    Creativity helps us see things differently.
-                </p>
-
-                <button class="like-btn" onclick="likeCard(event, this)">
-                    ♡ Like
-                </button>
-
-            </div>
+            </article>
 
 
-            <!-- DESIGN -->
+            <!-- IRON MAN -->
 
-            <div class="card" onclick="showArt('Design')">
+            <article class="card" data-hero="Iron Man">
 
-                <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&q=80"
-                    alt="Design">
+                <div class="image-container">
 
-                <h3>Design</h3>
+                    <img src="./image2.jpg" alt="Iron Man" loading="lazy">
 
-                <p>
-                    Good design combines ideas and beauty.
-                </p>
+                    <span class="hero-number">02</span>
 
-                <button class="like-btn" onclick="likeCard(event, this)">
-                    ♡ Like
-                </button>
+                </div>
 
-            </div>
+                <div class="card-content">
 
+                    <h3>🦾 Iron Man</h3>
+
+                    <p>
+                        A genius inventor, billionaire and powerful
+                        member of the Avengers.
+                    </p>
+
+                    <button class="like-btn" type="button">
+                        ♡ Like
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- CAPTAIN AMERICA -->
+
+            <article class="card" data-hero="Captain America">
+
+                <div class="image-container">
+
+                    <img src="./image3.jpg" alt="Captain America" loading="lazy">
+
+                    <span class="hero-number">03</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>🛡️ Captain America</h3>
+
+                    <p>
+                        A brave superhero and respected leader
+                        of the Avengers.
+                    </p>
+
+                    <button class="like-btn" type="button">
+                        ♡ Like
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- THOR -->
+
+            <article class="card" data-hero="Thor">
+
+                <div class="image-container">
+
+                    <img src="./image4.jpg" alt="Thor" loading="lazy">
+
+                    <span class="hero-number">04</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>⚡ Thor</h3>
+
+                    <p>
+                        The mighty God of Thunder from the
+                        realm of Asgard.
+                    </p>
+
+                    <button class="like-btn" type="button">
+                        ♡ Like
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- HULK -->
+
+            <article class="card" data-hero="Hulk">
+
+                <div class="image-container">
+
+                    <img src="./image5.jpg" alt="Hulk" loading="lazy">
+
+                    <span class="hero-number">05</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>💚 Hulk</h3>
+
+                    <p>
+                        A powerful superhero known for incredible
+                        strength and unstoppable power.
+                    </p>
+
+                    <button class="like-btn" type="button">
+                        ♡ Like
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- BLACK PANTHER -->
+
+            <article class="card" data-hero="Black Panther">
+
+                <div class="image-container">
+
+                    <img src="./image6.jpg" alt="Black Panther" loading="lazy">
+
+                    <span class="hero-number">06</span>
+
+                </div>
+
+                <div class="card-content">
+
+                    <h3>🐾 Black Panther</h3>
+
+                    <p>
+                        The powerful protector and king of Wakanda.
+                    </p>
+
+                    <button class="like-btn" type="button">
+                        ♡ Like
+                    </button>
+
+                </div>
+
+            </article>
 
         </div>
 
@@ -159,83 +275,87 @@
 
     <section id="music" class="media-section">
 
-        <h2>🎵 My Music</h2>
+        <div class="section-icon">🎵</div>
 
-        <p>Music makes every creative moment more enjoyable.</p>
+        <h2>My Music</h2>
 
-        <audio id="musicPlayer" controls preload="metadata">
-            <source src="./music.mpeg" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+        <p>
+            Enjoy my music while exploring the Marvel world.
+        </p>
 
-        <br>
+        <div class="media-box">
 
-        <button onclick="toggleMusic()">
-            ▶ Play / ⏸ Pause
+            <audio id="musicPlayer" controls preload="metadata">
+                <source src="./music.mpeg" type="audio/mpeg">
+                Your browser does not support audio.
+            </audio>
+
+        </div>
+
+        <button class="main-btn" id="musicBtn" type="button">
+            ▶ Play
         </button>
 
     </section>
+
+
     <!-- ================= VIDEO ================= -->
 
-    <section id="video">
+    <section id="video" class="video-section">
 
-        <h2>🎬 Creative Video</h2>
+        <div class="section-icon">🎬</div>
+
+        <h2>My Creative Video</h2>
 
         <p>
-            Watch a short video related to creativity.
+            Watch my video while exploring My Creative World.
         </p>
 
+        <div class="video-container">
 
-        <video controls width="600">
+            <video id="creativeVideo" controls preload="metadata">
+                <source src="./video.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
 
-            <source src="video.mp4" type="video/mp4">
-
-            Your browser does not support video.
-
-        </video>
-
-
-        <p class="video-note">
-            Add your video file as <strong>video.mp4</strong>
-            in the same folder as this HTML file.
-        </p>
+        </div>
 
     </section>
 
 
-    <!-- ================= INTERACTIVE CANVAS ================= -->
+    <!-- ================= INTERACTIVE ================= -->
 
     <section id="interactive" class="interactive-section">
 
-        <h2>
-            🟣 Interactive Creative Canvas
-        </h2>
+        <div class="section-icon">⚡</div>
+
+        <h2>Interactive Marvel Power</h2>
 
         <p>
-            Click anywhere inside the box to create a colourful circle.
+            Click inside the canvas to create a colourful superhero power.
         </p>
 
+        <div class="canvas-wrapper">
 
-        <canvas id="creativeCanvas" width="700" height="350">
-        </canvas>
+            <canvas id="creativeCanvas" width="700" height="350">
+            </canvas>
 
+        </div>
 
         <div class="canvas-controls">
 
-            <button onclick="clearCanvas()">
-                🗑 Clear
+            <button id="clearCanvasBtn" type="button">
+                🗑 Clear Powers
             </button>
 
-
-            <button onclick="randomCircle()">
-                🎲 Random Circle
+            <button id="randomCircleBtn" type="button">
+                ⚡ Create Power
             </button>
 
         </div>
 
-
-        <p>
-            Circles Created:
+        <p class="counter">
+            Powers Created:
             <strong id="circleCount">0</strong>
         </p>
 
@@ -246,15 +366,13 @@
 
     <section class="about">
 
-        <h2>
-            💡 About Creativity
-        </h2>
+        <h2>💡 About My Marvel World</h2>
 
         <p>
-            Creativity allows us to express ourselves through art,
-            music, design and technology. This website is a small
-            example of how different multimedia elements can be
-            combined to create an interactive experience.
+            My Marvel My Creative World is a multimedia website
+            created using HTML, CSS and JavaScript. It combines
+            images, music, video, animation and interactive
+            graphics into one creative website.
         </p>
 
     </section>
@@ -264,25 +382,23 @@
 
     <footer>
 
-        <p>
-            © 2026 My Creative World
-        </p>
+        <h3>🦸 Marvel My Creative World</h3>
+
+        <p>Created using HTML, CSS and JavaScript</p>
+
+        <p>© 2026 My Creative World</p>
 
     </footer>
 
 
     <!-- ================= BACK TO TOP ================= -->
 
-    <button id="topBtn" onclick="goTop()">
-
+    <button id="topBtn" type="button" aria-label="Back to top">
         ↑
-
     </button>
 
 
-    <!-- JAVASCRIPT -->
-
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 
 </body>
 

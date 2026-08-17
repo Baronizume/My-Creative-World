@@ -1,144 +1,341 @@
-// Welcome message
+/* =========================================================
+   MARVEL MY CREATIVE WORLD - SCRIPT
+   ========================================================= */
+
+
+/* =========================================================
+   THEME
+   ========================================================= */
+
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.addEventListener("click", toggleTheme);
+
+function toggleTheme() {
+
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        themeBtn.textContent = "☀️ Light Mode";
+    } else {
+        themeBtn.textContent = "🌙 Dark Mode";
+    }
+}
+
+
+/* =========================================================
+   WELCOME MESSAGE
+   ========================================================= */
+
+const welcomeBtn = document.getElementById("welcomeBtn");
+const message = document.getElementById("message");
+
+welcomeBtn.addEventListener("click", welcomeMessage);
 
 function welcomeMessage() {
 
-    const message = document.getElementById("message");
+    message.textContent =
+        "⚡ Welcome to the Marvel World! Enjoy your adventure! 🦸";
 
-    message.innerHTML =
-        "🌟 Welcome! Start exploring my creative world.";
-
-    message.style.fontWeight = "bold";
-    message.style.color = "#8e24aa";
+    setTimeout(function () {
+        message.textContent = "";
+    }, 4000);
 }
 
 
-// Gallery interaction
+/* =========================================================
+   HERO CARDS
+   ========================================================= */
 
-function showArt(name) {
+const cards = document.querySelectorAll(".card");
 
-    alert(
-        "You selected " +
-        name +
-        "! 🎨\n\nCreativity makes ordinary ideas special."
-    );
-}
+cards.forEach(function (card) {
 
+    card.addEventListener("click", function () {
 
-// Like button
+        const heroName = card.dataset.hero;
 
-function likeCard(event, button) {
-
-    event.stopPropagation();
-
-    if (button.innerHTML.includes("♡")) {
-
-        button.innerHTML = "♥ Liked";
-
-    } else {
-
-        button.innerHTML = "♡ Like";
-    }
-}
-
-
-// Music control
-
-function toggleMusic() {
-
-    const music = document.getElementById("musicPlayer");
-
-    if (music.paused) {
-
-        music.play();
-
-    } else {
-
-        music.pause();
-    }
-}
-
-
-// Canvas
-
-const canvas = document.getElementById("creativeCanvas");
-
-const ctx = canvas.getContext("2d");
-
-let circleCount = 0;
-
-
-// Create random colour
-
-function randomColor() {
-
-    const colors = [
-        "#8e24aa",
-        "#e91e63",
-        "#2196f3",
-        "#009688",
-        "#ff9800",
-        "#4caf50"
-    ];
-
-    return colors[
-        Math.floor(Math.random() * colors.length)
-    ];
-}
-
-
-// Draw circle
-
-function createCircle(x, y) {
-
-    const radius = Math.floor(Math.random() * 25) + 15;
-
-    ctx.beginPath();
-
-    ctx.arc(x, y, radius, 0, Math.PI * 2);
-
-    ctx.fillStyle = randomColor();
-
-    ctx.fill();
-
-    circleCount++;
-
-    document.getElementById("circleCount").innerText =
-        circleCount;
-}
-
-
-// Click canvas
-
-canvas.addEventListener("click", function (event) {
-
-    const rect = canvas.getBoundingClientRect();
-
-    const x = event.clientX - rect.left;
-
-    const y = event.clientY - rect.top;
-
-    createCircle(x, y);
+        showHero(heroName);
+    });
 
 });
 
 
-// Random circle button
+function showHero(heroName) {
+
+    alert(
+        "🦸 You selected " +
+        heroName +
+        "!"
+    );
+}
+
+
+/* =========================================================
+   LIKE BUTTON
+   ========================================================= */
+
+const likeButtons = document.querySelectorAll(".like-btn");
+
+likeButtons.forEach(function (button) {
+
+    button.addEventListener("click", function (event) {
+
+        // Prevent the card click event
+        event.stopPropagation();
+
+        likeCard(button);
+
+    });
+
+});
+
+
+function likeCard(button) {
+
+    if (button.classList.contains("liked")) {
+
+        button.classList.remove("liked");
+
+        button.textContent = "♡ Like";
+
+    } else {
+
+        button.classList.add("liked");
+
+        button.textContent = "♥ Liked";
+
+    }
+}
+
+
+/* =========================================================
+   MUSIC
+   ========================================================= */
+
+const musicPlayer =
+    document.getElementById("musicPlayer");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+
+musicBtn.addEventListener("click", toggleMusic);
+
+
+function toggleMusic() {
+
+    if (musicPlayer.paused) {
+
+        musicPlayer.play()
+            .then(function () {
+
+                musicBtn.textContent = "⏸ Pause";
+
+            })
+            .catch(function () {
+
+                alert(
+                    "The music file could not be played. " +
+                    "Please check that music.mpeg exists."
+                );
+
+            });
+
+    } else {
+
+        musicPlayer.pause();
+
+        musicBtn.textContent = "▶ Play";
+    }
+}
+
+
+musicPlayer.addEventListener("play", function () {
+
+    musicBtn.textContent = "⏸ Pause";
+
+});
+
+
+musicPlayer.addEventListener("pause", function () {
+
+    musicBtn.textContent = "▶ Play";
+
+});
+
+
+/* =========================================================
+   CANVAS
+   ========================================================= */
+
+const canvas =
+    document.getElementById("creativeCanvas");
+
+const ctx =
+    canvas.getContext("2d");
+
+const circleCount =
+    document.getElementById("circleCount");
+
+let circlesCreated = 0;
+
+
+/* =========================================================
+   CREATE POWER
+   ========================================================= */
+
+function createPower(x, y) {
+
+    const radius =
+        Math.floor(Math.random() * 35) + 10;
+
+    const colors = [
+        "#ff0000",
+        "#ffd000",
+        "#00e5ff",
+        "#7500ff",
+        "#00ff66",
+        "#ff00cc"
+    ];
+
+    const color =
+        colors[
+        Math.floor(
+            Math.random() * colors.length
+        )
+        ];
+
+
+    /* Outer glow */
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x,
+        y,
+        radius + 12,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fillStyle = color;
+
+    ctx.globalAlpha = 0.15;
+
+    ctx.fill();
+
+
+    /* Main circle */
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x,
+        y,
+        radius,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fillStyle = color;
+
+    ctx.globalAlpha = 0.75;
+
+    ctx.fill();
+
+
+    /* Inner circle */
+
+    ctx.beginPath();
+
+    ctx.arc(
+        x - radius * 0.25,
+        y - radius * 0.25,
+        radius * 0.3,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fillStyle = "#ffffff";
+
+    ctx.globalAlpha = 0.7;
+
+    ctx.fill();
+
+
+    ctx.globalAlpha = 1;
+
+    circlesCreated++;
+
+    circleCount.textContent =
+        circlesCreated;
+}
+
+
+/* =========================================================
+   CANVAS CLICK
+   ========================================================= */
+
+canvas.addEventListener("click", function (event) {
+
+    const rect =
+        canvas.getBoundingClientRect();
+
+    const scaleX =
+        canvas.width / rect.width;
+
+    const scaleY =
+        canvas.height / rect.height;
+
+    const x =
+        (event.clientX - rect.left) * scaleX;
+
+    const y =
+        (event.clientY - rect.top) * scaleY;
+
+    createPower(x, y);
+
+});
+
+
+/* =========================================================
+   RANDOM POWER
+   ========================================================= */
+
+const randomCircleBtn =
+    document.getElementById("randomCircleBtn");
+
+randomCircleBtn.addEventListener(
+    "click",
+    randomCircle
+);
+
 
 function randomCircle() {
 
     const x =
-        Math.random() *
-        (canvas.width - 40) + 20;
+        Math.random() * canvas.width;
 
     const y =
-        Math.random() *
-        (canvas.height - 40) + 20;
+        Math.random() * canvas.height;
 
-    createCircle(x, y);
+    createPower(x, y);
 }
 
 
-// Clear canvas
+/* =========================================================
+   CLEAR CANVAS
+   ========================================================= */
+
+const clearCanvasBtn =
+    document.getElementById("clearCanvasBtn");
+
+clearCanvasBtn.addEventListener(
+    "click",
+    clearCanvas
+);
+
 
 function clearCanvas() {
 
@@ -149,51 +346,40 @@ function clearCanvas() {
         canvas.height
     );
 
-    circleCount = 0;
+    circlesCreated = 0;
 
-    document.getElementById("circleCount").innerText =
-        "0";
+    circleCount.textContent = "0";
 }
 
 
-// Dark mode
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
 
-function toggleTheme() {
+const topBtn =
+    document.getElementById("topBtn");
 
-    document.body.classList.toggle("dark");
-
-    const button = document.getElementById("themeBtn");
-
-    if (document.body.classList.contains("dark")) {
-
-        button.innerHTML = "☀️ Light Mode";
-
-    } else {
-
-        button.innerHTML = "🌙 Dark Mode";
-    }
-}
-
-
-// Show back-to-top button
 
 window.addEventListener("scroll", function () {
 
-    const topButton =
-        document.getElementById("topBtn");
+    if (window.scrollY > 400) {
 
-    if (window.scrollY > 300) {
+        topBtn.style.display = "flex";
 
-        topButton.style.display = "block";
+        topBtn.style.alignItems = "center";
+
+        topBtn.style.justifyContent = "center";
 
     } else {
 
-        topButton.style.display = "none";
+        topBtn.style.display = "none";
     }
+
 });
 
 
-// Go to top
+topBtn.addEventListener("click", goTop);
+
 
 function goTop() {
 
@@ -201,4 +387,50 @@ function goTop() {
         top: 0,
         behavior: "smooth"
     });
+
 }
+
+
+/* =========================================================
+   IMAGE ERROR HANDLING
+   ========================================================= */
+
+const images =
+    document.querySelectorAll(".image-container img");
+
+
+images.forEach(function (image) {
+
+    image.addEventListener("error", function () {
+
+        console.error(
+            "Image could not be loaded:",
+            image.src
+        );
+
+        image.style.background = "#300000";
+
+        image.style.objectFit = "contain";
+
+    });
+
+});
+
+
+/* =========================================================
+   VIDEO ERROR CHECK
+   ========================================================= */
+
+const creativeVideo =
+    document.getElementById("creativeVideo");
+
+creativeVideo.addEventListener(
+    "error",
+    function () {
+
+        console.error(
+            "video.mp4 could not be loaded."
+        );
+
+    }
+);
